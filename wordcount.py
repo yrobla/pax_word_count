@@ -21,8 +21,8 @@ with open('pax_all_agreements_data.csv', 'r') as read_obj:
             table = str.maketrans(dict.fromkeys("(),."))            
             agt = agt.translate(table)
 
-            # clean articles
-            stopwords = ['a', 'an', 'and', 'the', 'of', 'on', 'de', 'in', 'for']
+            # clean articles and non relevant words
+            stopwords = ['a', 'an', 'and', 'the', 'of', 'on', 'de', 'in', 'for', 'between', 'agreement']
             final_words = [word for word in re.split("\W+", agt) if word.lower() not in stopwords]
 
             # remove words with less than 3 chars
